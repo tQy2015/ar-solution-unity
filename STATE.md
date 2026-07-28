@@ -1,13 +1,22 @@
 # AR拡張展示 — STATE（現在地・次アクションの正典）
 
-**更新**: 2026-07-05
+**更新**: 2026-07-28
 **フェーズ**: P0 — Mac側で本プロジェクト構築済み（テストビルド〜iPad実機テストの進捗詳細は次回確認）
 
 ---
 
-## 環境・役割分担（2026-07-05追記）
+## 環境・役割分担（2026-07-28更新・git移行完了）
+
+**ディレクトリ構成（git ベース）**:
+```
+~/repo/
+  ar-solution-unity/     ← Unity プロジェクト本体（独立リポジトリ）
+  melon-active/
+    ar-solution/         ← ドキュメント・プロジェクト管理（正典）
+```
 
 - **Mac側**: 本プロジェクト構築済み（Unity/Xcode実行環境）。Unity Editor・iOS Buildの実作業はMacで行う。
+  - Unity プロジェクト本体: `~/repo/ar-solution-unity`
 - **Z240側（このDropbox/tmux）**: バックヤード業務専用。
   - **理由**: Macのtmuxセッションには継続性がない（再起動等でコンテキストが失われる）ため、永続的な作業記録・スクリプト整備はこちら（Z240 tmux）で行う方針にした。
   - 担当範囲: Unity C#スクリプトの下書き、解剖モデル(GLB)最適化パイプライン、SCANIVERSEスキャン後処理、ドキュメント整備など、Mac実機非依存の作業。
@@ -15,13 +24,14 @@
 
 ---
 
-## 方針（2026-07-03 更新）
+## 方針（2026-07-28更新・git 移行）
 
 - **フレームワーク**: AR Foundation + ARKit Object Detection（Unity公式・無料・ロゴなし）
 - **展示端末**: iPad 確定
 - **Android**: ARCore で同一コードが動くが精度限定・検証は任意
 - **iPad配備**: Xcode無料プロビジョニング（Personal Team・追加費用なし）
-- **Unityプロジェクト本体パス**: `~/Projects/ar-solution-unity` (ローカルMac)
+- **Unityプロジェクト本体パス**: `~/repo/ar-solution-unity` (git ベース)
+- **プロジェクト管理**: `~/repo/melon-active/ar-solution/STATE.md`（このファイル）
 - **Unity作業マシン**: ローカルMac（開発・iOS Build） → 学生Mac（本番配備）
 - **研究・計画マシン**: Z240 Ubuntu（参考・Android 検証用）
 - **使用端末（iPad）**: （機種・iPadOSバージョンを記入）
