@@ -42,14 +42,28 @@
 - アプリ有効期限7日 → Xcodeで再Runするだけで更新（再スキャン不要）
 - **Mac必須**（Xcode実行環境）
 
-## リポジトリ構成（2つの独立リポジトリ）
+## ⚠️ 命名矛盾の明示的説明
 
-**⚠️ 重要**: このプロジェクトは2つの独立したgitリポジトリで構成されています。混同しないこと。
+**「ar-solution」という名前が2つの異なる場所に存在します。混同しないこと。**
 
-| 役割 | ローカルパス | リモート | 内容 |
-|-----|-----------|---------|------|
-| **試験作業** | `~/repo/ar-solution-unity` | `https://github.com/tQy2015/ar-solution-unity` | Unity プロジェクト本体（Assets/、Library/、ProjectSettings/ 等） |
-| **管理・バックヤード** | `~/repo/melon-active/ar-solution` | `https://github.com/tQy2015/melon-active` (main branch) | STATE.md、docs/、スキャンデータ、メモ（本ファイル） |
+| 役割 | ローカルパス | GitHub URL | 内容 | 担当 |
+|-----|-----------|-----------|------|------|
+| **✓ Unity 試験作業** | `~/repo/ar-solution-unity` | `https://github.com/tQy2015/ar-solution` | Unity プロジェクト本体（Assets/、ProjectSettings/ 等） | Mac |
+| **✓ 管理・バックヤード** | `~/repo/melon-active/ar-solution` | `https://github.com/tQy2015/melon-active` (main branch) | STATE.md、docs/、スキャンデータ（本ファイル） | Mac / Z240 |
+
+**命名が異なる理由**:
+- ローカルパス `ar-solution-unity` は「Unity 関連」を明示
+- GitHub `ar-solution` は業務名で統一（melon-active 内の `ar-solution` とは異なるリポジトリ）
+- 両者は **別の git リポジトリ** であり、別のリモート URL を持つ
+
+**確認方法**（ローカルで git remote を確認）:
+```bash
+cd ~/repo/ar-solution-unity && git remote -v
+# → https://github.com/tQy2015/ar-solution.git (Unity)
+
+cd ~/repo/melon-active/ar-solution && git remote -v
+# → https://github.com/tQy2015/melon-active.git (管理層)
+```
 
 **分離理由**:
 - Unity の生成物（Library/、Temp/、builds/）が大容量
