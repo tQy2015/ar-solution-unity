@@ -1,7 +1,7 @@
 # AR拡張展示 — STATE（現在地・次アクションの正典）
 
-**更新**: 2026-07-28
-**フェーズ**: P0 — Mac側で本プロジェクト構築済み（テストビルド〜iPad実機テストの進捗詳細は次回確認）
+**更新**: 2026-07-29
+**フェーズ**: P0 — iPad実機デプロイ成功（AR Foundation + ARKit 動作確認済み）
 
 ---
 
@@ -87,10 +87,10 @@
 |---|---|---|---|
 | 1 | ✅ | Unity 2022 LTS インストール (iOS Build Support 含む) | MAC_SETUP_CHECKLIST Phase 1 |
 | 2 | ✅ | ar-solution プロジェクト初期化（Mac） | MAC_SETUP_CHECKLIST Phase 2 |
-| 3 | 🔄 | AR Foundation + ARKit XR Plugin インポート（manifest.json追加済み、Unity Editorでの自動インポート完了は未確認） | MAC_SETUP_CHECKLIST Phase 3 |
-| 4 | ⬜ | Xcode Apple ID 登録 + Personal Team 設定 | IPAD_DEPLOYMENT Step 1-3 |
-| 5 | ⬜ | テストビルド生成（Cube） | IPAD_DEPLOYMENT Step 2 |
-| 6 | ⬜ | iPad に テストビルド デプロイ | IPAD_DEPLOYMENT Step 4 |
+| 3 | ✅ | AR Foundation + ARKit XR Plugin インポート（manifest.json追加済み、Unity Editorでの自動インポート完了済み） | MAC_SETUP_CHECKLIST Phase 3 |
+| 4 | ✅ | Xcode Apple ID 登録 + Personal Team 設定 | IPAD_DEPLOYMENT Step 1-3 |
+| 5 | ✅ | テストビルド生成（Cube） | IPAD_DEPLOYMENT Step 2 |
+| 6 | ✅ | iPad に テストビルド デプロイ | IPAD_DEPLOYMENT Step 4 |
 | 7 | ⬜ | 椅子を SCANIVERSE でスキャン → OBJ出力 | SCANIVERSE_WORKFLOW P0 |
 | 8 | ⬜ | OBJ を Unity にインポート | SCANIVERSE_WORKFLOW Step Unity |
 | 9 | ⬜ | AR Session に統合 | SCANIVERSE_WORKFLOW Step AR |
@@ -117,6 +117,7 @@
 
 形式: `日付 / 観察内容 / 分類(ok/blocker/design/idea) / 対処`
 
+- 2026-07-29 / P0フェーズ iPad実機デプロイ成功。Provisioning Profile エラー→Bundle ID変更・キャッシュクリアで解決。Developer Mode・Certificate信頼設定で最終決着。トラブルシューティングドキュメント `XCODE_DEPLOYMENT_TROUBLESHOOTING.md` 作成済み。 / ok / タスク7以降のSCANIVERSEスキャンへ進行
 - 2026-07-05 / OMEN→Z240のSSHが不通になっていた。原因はOMEN側でTailscaleがsnap版/apt版二重インストールでTUNデバイス競合しネットワークから脱落していたこと。apt版に統一し復旧済み（詳細: `$CLAUDE_MELON_PROJECT_ROOT/1593_n1-tailscale-ssh-connection-guide.md`「既知の不具合」節）。 / blocker→対処済み / 再発時は同ドキュメントの診断コマンドを確認
 - 2026-07-05 / このプロジェクト（Z240側tmuxセッション）が頻繁に落ちる傾向を確認。原因未特定（上記SSH/Tailscale不調との関連含め要調査）。 / blocker / 次回セッションでtmuxのkill/切断ログ・dmesg・OOM killerの有無を確認する
 - 2026-07-05 / 上記の一次調査: dmesg/journalctl にOOM Kill記録なし、メモリは21GB空きと余裕あり、システムuptimeは1日9h超で連続稼働（再起動なし）。`ar` tmuxセッションは今日20:20作成の1本のみで生存中だが、attachプロセスが2重（512350, 522343）に張られていた状態を確認 → OOM等のシステム要因ではなく、接続（attach）側の問題の可能性が高い。 / blocker→調査継続 / 実際に切断が発生した瞬間のエラーメッセージ・再現手順があれば追加調査
