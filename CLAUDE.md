@@ -16,14 +16,28 @@
 
 ---
 
-## ⚠️ リポジトリ分離ガイド
+## ⚠️ 命名矛盾の明示的説明
 
-### 2つの独立リポジトリ
+**「ar-solution」という名前が2つの異なる場所に存在します。混同しないこと。**
 
-| 役割 | ローカルパス | リモート | 担当マシン |
-|-----|-----------|---------|----------|
-| **試験作業**（本リポジトリ） | `~/repo/ar-solution-unity` | https://github.com/tQy2015/ar-solution-unity | Mac |
-| **管理・バックヤード** | `~/repo/melon-active/ar-solution` | https://github.com/tQy2015/melon-active | Mac / Z240 |
+| 役割 | ローカルパス | GitHub URL | 内容 | 担当 |
+|-----|-----------|-----------|------|------|
+| **✓ Unity 試験作業** | `~/repo/ar-solution-unity` | `https://github.com/tQy2015/ar-solution` | Unity プロジェクト本体（Assets/, ProjectSettings/ 等） | Mac |
+| **✓ 管理・バックヤード** | `~/repo/melon-active/ar-solution` | `https://github.com/tQy2015/melon-active` (main branch) | ドキュメント・STATE.md・スキャンデータ | Mac / Z240 |
+
+**命名が異なる理由**:
+- ローカルパス `ar-solution-unity` は「Unity 関連」を明示
+- GitHub `ar-solution` は業務名で統一（melon-active 内の `ar-solution` とは異なるリポジトリ）
+- 両者は **別の git リポジトリ** であり、別のリモート URL を持つ
+
+**確認方法**（ローカルで git remote を確認）:
+```bash
+cd ~/repo/ar-solution-unity && git remote -v
+# → https://github.com/tQy2015/ar-solution.git (Unity)
+
+cd ~/repo/melon-active/ar-solution && git remote -v
+# → https://github.com/tQy2015/melon-active.git (管理層)
+```
 
 ### 何をここに置くか
 
