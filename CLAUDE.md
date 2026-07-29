@@ -42,20 +42,43 @@
 - アプリ有効期限7日 → Xcodeで再Runするだけで更新（再スキャン不要）
 - **Mac必須**（Xcode実行環境）
 
-## ディレクトリ構成
+## リポジトリ構成（2つの独立リポジトリ）
+
+**⚠️ 重要**: このプロジェクトは2つの独立したgitリポジトリで構成されています。混同しないこと。
+
+| 役割 | ローカルパス | リモート | 内容 |
+|-----|-----------|---------|------|
+| **試験作業** | `~/repo/ar-solution-unity` | `https://github.com/tQy2015/ar-solution-unity` | Unity プロジェクト本体（Assets/、Library/、ProjectSettings/ 等） |
+| **管理・バックヤード** | `~/repo/melon-active/ar-solution` | `https://github.com/tQy2015/melon-active` (main branch) | STATE.md、docs/、スキャンデータ、メモ（本ファイル） |
+
+**分離理由**:
+- Unity の生成物（Library/、Temp/、builds/）が大容量
+- 管理レイヤーは git 正典、Unity 実体は独立で管理
+- Mac での開発作業と Z240 でのドキュメント整備を並行実施
+
+## ディレクトリ構成（管理レイヤー）
 
 ```
-ar-solution/
-├── CLAUDE.md        ← 本ファイル
-├── STATE.md         ← 現在地・次アクション
-├── docs/            ← 手順書・チェックリスト
-├── scans/           ← SCANIVERSEエクスポートOBJデータ
-├── builds/          ← Xcodeプロジェクト・IPAの参照メモ
-└── unity-refs/      ← Unityシーン構成メモ・スクリーンショット
-```
+melon-active/ar-solution/          ← 本リポジトリ（管理層）
+├── CLAUDE.md                       ← 本ファイル（リポジトリ分離説明）
+├── STATE.md                        ← 現在地・次アクション
+├── docs/                           ← 手順書・チェックリスト
+│   ├── SETUP_ROADMAP.md
+│   ├── MAC_SETUP_CHECKLIST.md
+│   ├── IPAD_DEPLOYMENT.md
+│   ├── AR_CALIBRATION_ARCHITECTURE.md
+│   ├── SCANIVERSE_WORKFLOW.md
+│   └── XCODE_DEPLOYMENT_TROUBLESHOOTING.md
+├── scans/                          ← SCANIVERSEエクスポートOBJデータ
+├── builds/                         ← Xcodeプロジェクト出力の参照メモ
+└── unity-refs/                     ← Unityシーン構成メモ・スクリーンショット
 
-> Unityプロジェクト本体はDropbox外（容量・同期速度の都合）に置くこと。
-> パスはSTATE.mdの「環境メモ」欄に記録する。
+ar-solution-unity/                 ← 試験作業リポジトリ（開発層）
+├── Assets/                         ← Unity アセット・スクリプト
+├── Packages/                       ← Package Manager 依存関係
+├── ProjectSettings/                ← iOS ビルド設定・XR設定
+└── Builds/iOS/                     ← Xcode プロジェクト出力（コミット対象外推奨）
+```
 
 ## フェーズ構成
 
