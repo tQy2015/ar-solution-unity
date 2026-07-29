@@ -23,7 +23,7 @@
 | 役割 | ローカルパス | GitHub URL | 内容 | 担当 |
 |-----|-----------|-----------|------|------|
 | **✓ Unity 試験作業** | `~/repo/ar-solution-unity` | `https://github.com/tQy2015/ar-solution` | Unity プロジェクト本体（Assets/, ProjectSettings/ 等） | Mac |
-| **✓ 管理・バックヤード** | `~/repo/melon-active/ar-solution` | `https://github.com/tQy2015/melon-active` (main branch) | ドキュメント・STATE.md・スキャンデータ | Mac / Z240 |
+| **✓ 管理・バックヤード** | `~/repo/melon-active/ar-solution` | `https://github.com/tQy2015/melon-active/tree/main/ar-solution` | ドキュメント・STATE.md・スキャンデータ | Mac / Z240 |
 
 **命名が異なる理由**:
 - ローカルパス `ar-solution-unity` は「Unity 関連」を明示
