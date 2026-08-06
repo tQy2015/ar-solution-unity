@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Edit",
+      "Read",
+      "Write"
+    ]
+  },
+  "mcpServers": {
+    "blender-mcp": {
+      "command": "uvx",
+      "args": ["blender-mcp"]
+    }
+  }
+}
