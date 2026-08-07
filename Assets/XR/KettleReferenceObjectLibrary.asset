@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f3b71a771f04aef8057fae3964fd78, type: 3}
+  m_Name: KettleReferenceObjectLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5635814956991848858
+  m_GuidHigh: 16368110135421593222
+  m_ReferenceObjects:
+  - m_GuidLow: 5436138038346929719
+    m_GuidHigh: 3673245845708429190
+    m_Name: kettle
+    m_Entries:
+    - {fileID: -6831329414088302235, guid: 4458b2fdf21fb4b88b0788a766bde5eb, type: 3}
+  - m_GuidLow: 5626834845049116341
+    m_GuidHigh: 12975524571681971849
+    m_Name: Pet -bottlePet ~bottle
+    m_Entries:
+    - {fileID: -6831329414088302235, guid: a97aa7904f1cb4d9c905210d7cce3e20, type: 3}
