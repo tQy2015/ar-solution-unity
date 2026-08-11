@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Test0807_ObjectDetection.unity
     guid: 7f59fd7882ef9431480a1c47a56eb6e0
   - enabled: 0
     path: Assets/Scene/Test0806.unity
     guid: 99089508e8b6142a593c6c2876bf916d
+  - enabled: 1
+    path: Assets/Scene/Test0810.unity
+    guid: dadc66d4b6c044409a031e1dea530d9c
+  - enabled: 0
+    path: Assets/Scene/Test0811.unity
+    guid: a358fc31fdcc6406197ee79040942400
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: baa5058989ecf4f2ea40bb8d56ece6e2, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: fd6932cfa625646dea82371457dd4e5f, type: 2}

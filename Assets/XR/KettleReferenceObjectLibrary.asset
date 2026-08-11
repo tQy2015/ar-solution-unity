@@ -25,3 +25,8 @@ MonoBehaviour:
     m_Name: Pet -bottlePet ~bottle
     m_Entries:
     - {fileID: -6831329414088302235, guid: a97aa7904f1cb4d9c905210d7cce3e20, type: 3}
+  - m_GuidLow: 4676793932586930950
+    m_GuidHigh: 16069227281124372630
+    m_Name: banana
+    m_Entries:
+    - {fileID: -6831329414088302235, guid: d451ceeba812946729be7c3753f16b0b, type: 3}
