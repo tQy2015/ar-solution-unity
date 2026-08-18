@@ -30,3 +30,8 @@ MonoBehaviour:
     m_Name: banana
     m_Entries:
     - {fileID: -6831329414088302235, guid: d451ceeba812946729be7c3753f16b0b, type: 3}
+  - m_GuidLow: 5304129914642409914
+    m_GuidHigh: 4043157584701876380
+    m_Name: Miffy
+    m_Entries:
+    - {fileID: -6831329414088302235, guid: 058f7b424f60644c5b30c59d45276baf, type: 3}
