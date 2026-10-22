@@ -7,18 +7,6 @@
 # Now they are ignored since Visual Studio files in Projects folder are now generated.
 # Keeps only Assets structure in the repository. Previous structures (for example: base Unity project)
 # gets removed by the changes in *.proj files. This might cause conflicts during pull/merge/rebase.
-# 個人宅の対象物スキャンデータ（.arobject）はgit管理対象外
-# 学生は各自の対象物を ar-solution-scanner-app でスキャンし、ローカルにのみ保持する
-# 2026-10-22: Kettle/Miffy/Pet-bottle/banana を履歴含め完全除去済み（個人宅の物品画像由来データのため）
-Assets/Models/Kettle/
-Assets/Models/Kettle.meta
-Assets/Models/Miffy/
-Assets/Models/Miffy.meta
-Assets/Models/Pet-bottle/
-Assets/Models/Pet-bottle.meta
-Assets/Models/banana/
-Assets/Models/banana.meta
-
 # Text Editor Usage
 .vscode/
 .idea/
@@ -137,3 +125,16 @@ xcuserdata/
 
 # Resolve Mac OS .DS_Store files
 .DS_Store
+
+# 個人宅の対象物スキャンデータ（.arobject）はgit管理対象外
+# 学生は各自の対象物を ar-solution-scanner-app でスキャンし、ローカルにのみ保持する
+# 2026-10-22: Kettle/Miffy/Pet-bottle/banana を履歴含め完全除去済み（個人宅の物品画像由来データのため）
+# 上記の Unity 既定ルール(!Assets/**/*.meta)より後に置く必要がある（順序依存で上書きされるため）
+Assets/Models/Kettle/
+Assets/Models/Kettle.meta
+Assets/Models/Miffy/
+Assets/Models/Miffy.meta
+Assets/Models/Pet-bottle/
+Assets/Models/Pet-bottle.meta
+Assets/Models/banana/
+Assets/Models/banana.meta
