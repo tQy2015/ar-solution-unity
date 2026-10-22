@@ -116,6 +116,28 @@ namespace ARSolution
                       $"(anchored, contentOffset={contentOffset}, contentLossyScale={content.transform.lossyScale}, " +
                       $"anchorLossyScale={anchor.transform.lossyScale})");
 
+            // DEBUG（座標系ズレ仮説の検証用・原因判明後に削除）: H1(回転フレーム)・H7(pivot)判定に必要なログ。
+            // 既存ログは位置のみでAnchorの回転・ワールド空間での実移動量・pivotと見た目中心のズレを
+            // 出力していなかったため追加。挙動は変えない（ログのみ）
+            var worldDelta = content.transform.position - anchor.transform.position;
+            var renderers = content.GetComponentsInChildren<Renderer>();
+            Bounds? combinedBounds = null;
+            foreach (var r in renderers)
+            {
+                if (combinedBounds == null) combinedBounds = r.bounds;
+                else combinedBounds.Value.Encapsulate(r.bounds);
+            }
+            var pivotToVisualCenter = combinedBounds.HasValue
+                ? combinedBounds.Value.center - content.transform.position
+                : Vector3.zero;
+
+            Debug.Log($"[ObjectDetectionSpawner][DEBUG-coord] anchor.eulerAngles={anchor.transform.rotation.eulerAngles} " +
+                      $"trackedObject.eulerAngles={trackedObject.transform.rotation.eulerAngles} " +
+                      $"content.worldPosition={content.transform.position} worldDelta(content-anchor)={worldDelta} " +
+                      $"boundsCenter={(combinedBounds.HasValue ? combinedBounds.Value.center.ToString() : "n/a")} " +
+                      $"boundsSize={(combinedBounds.HasValue ? combinedBounds.Value.size.ToString() : "n/a")} " +
+                      $"pivotToVisualCenter={pivotToVisualCenter}");
+
             // DEBUG（ベースライン再確認用・原因判明後に削除）: 前回確実に見えたY軸8分割の虹色表示を復元
             SpawnSegmentedAxis(anchor.transform, Vector3.up, "AxisY");
         }

@@ -117,7 +117,7 @@ open Builds/iOS/Unity-iPhone.xcodeproj
 
 ### 認識はするのにコンテンツが見当違いの場所に出る/出ない
 
-これは**既知の未解決課題**です。対象物ごとに`ObjectDetectionSpawner`の`contentOffset`という値を手動調整する必要があります。README.md の「⚠️ 既知の限界：キャリブレーション」を必ず読んでください。新しい対象物を追加するたびに発生します。
+これは**既知の未解決課題**です。対象物ごとに`ObjectDetectionSpawner`の`contentOffset`という値を手動調整する必要があります。詳細は `docs/AR_TECHNICAL_NOTES.md` §6「contentOffset」を参照してください。新しい対象物を追加するたびに発生します。
 
 ### Xcodeで署名エラーが出る
 
@@ -150,6 +150,14 @@ system_profiler SPUSBDataType | grep -A 5 "iPad"
 
 ---
 
+## さらに詳しい技術資料（詰まった時に見る場所）
+
+| 資料 | 内容 |
+|---|---|
+| `docs/XCODE_DEPLOYMENT_TROUBLESHOOTING.md` | 署名エラー・Developer Mode・証明書信頼・リンクエラー・Bundle Identifier衝突など、Xcode配備で発生する問題のカタログ |
+| `docs/AR_TECHNICAL_NOTES.md` | TrackedPoseDriver・World Anchor・contentOffset・実機のみで起きる不具合など、AR実装の技術知識 |
+| `docs/ARKIT_OBJECT_DETECTION_REFERENCE.md` | 対象物をスキャンする前に読む: 検知に向く/向かない対象物の条件、照明の影響、複数スキャン戦略 |
+
 ## 困ったら
 
-このREADME/GUIDEで解決しない場合は、担当教員（小林）に連絡してください。より詳しい設計背景資料は教員側の管理リポジトリにあります。
+上記の資料・このREADME/AGENTS.mdで解決しない場合は、担当教員（小林）に連絡してください。

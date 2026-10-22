@@ -17,21 +17,6 @@ MonoBehaviour:
   m_ReferenceObjects:
   - m_GuidLow: 5436138038346929719
     m_GuidHigh: 3673245845708429190
-    m_Name: kettle
+    m_Name: gum
     m_Entries:
-    - {fileID: -6831329414088302235, guid: 4458b2fdf21fb4b88b0788a766bde5eb, type: 3}
-  - m_GuidLow: 5626834845049116341
-    m_GuidHigh: 12975524571681971849
-    m_Name: Pet -bottlePet ~bottle
-    m_Entries:
-    - {fileID: -6831329414088302235, guid: a97aa7904f1cb4d9c905210d7cce3e20, type: 3}
-  - m_GuidLow: 4676793932586930950
-    m_GuidHigh: 16069227281124372630
-    m_Name: banana
-    m_Entries:
-    - {fileID: -6831329414088302235, guid: d451ceeba812946729be7c3753f16b0b, type: 3}
-  - m_GuidLow: 5304129914642409914
-    m_GuidHigh: 4043157584701876380
-    m_Name: Miffy
-    m_Entries:
-    - {fileID: -6831329414088302235, guid: 058f7b424f60644c5b30c59d45276baf, type: 3}
+    - {fileID: -6831329414088302235, guid: 6594934e4d9eb443a8df4878e311f78e, type: 3}

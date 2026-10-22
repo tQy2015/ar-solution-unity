@@ -126,15 +126,18 @@ xcuserdata/
 # Resolve Mac OS .DS_Store files
 .DS_Store
 
-# 個人宅の対象物スキャンデータ（.arobject）はgit管理対象外
+# .arobjectスキャンデータは個人情報扱いのためgit管理対象外（AGENTS.md参照）
 # 学生は各自の対象物を ar-solution-scanner-app でスキャンし、ローカルにのみ保持する
-# 2026-10-22: Kettle/Miffy/Pet-bottle/banana を履歴含め完全除去済み（個人宅の物品画像由来データのため）
+# 2026-10-22: Kettle/Miffy/Pet-bottle/banana を履歴含め完全除去済み。以降は一般パターンで再発防止
 # 上記の Unity 既定ルール(!Assets/**/*.meta)より後に置く必要がある（順序依存で上書きされるため）
-Assets/Models/Kettle/
+Assets/Models/**/*.arobject
+Assets/Models/*.arobject
+# .arobject用に自動生成されるインポーター設定(.meta)自体に画像データは含まないが、
+# 対応する.arobjectが無いと参照が壊れるため同様に対象外にする
+Assets/Models/**/*.arobject.meta
+Assets/Models/*.arobject.meta
+# 旧個人データ用フォルダのmeta残骸（フォルダ自体は空になったがmetaファイルは残存）
 Assets/Models/Kettle.meta
-Assets/Models/Miffy/
 Assets/Models/Miffy.meta
-Assets/Models/Pet-bottle/
 Assets/Models/Pet-bottle.meta
-Assets/Models/banana/
 Assets/Models/banana.meta

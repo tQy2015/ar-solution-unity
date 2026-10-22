@@ -37,9 +37,26 @@ Xcode:  open Builds/iOS/Unity-iPhone.xcodeproj→Signing & Capabilities→Team�
 | `Assets/Scripts/AR/LayerToggleController.cs` | 骨格/筋肉/臓器レイヤーON/OFF | レイヤーUIを変える時 |
 | `Assets/XR/*ReferenceObjectLibrary.asset` | `.arobject`登録先 | 対象物を追加/入替する時。`ARTrackedObjectManager`側の参照も更新必要 |
 
+## ⚠️ `.arobject`ファイルは個人情報扱い
+
+`.arobject`（ARKit Object Detectionの参照オブジェクトファイル）は**スキャン時の画像データを内包する**ため、
+個人宅で撮影した対象物（Kettle/Miffy/Pet-bottle/banana等）のスキャンデータは個人情報として扱う。
+**git（特にpublicリポジトリ）にコミットしない**——`.gitignore`で個別に除外済み
+（2026-10-22、該当ファイルは履歴含めgit filter-repoで完全除去・force-push済み。経緯:
+`melon-active/ar-solution/STATE.md`参照）。
+
+学生が自分の対象物をスキャンする場合も同様に扱うこと（各自ローカル保持、gitへコミットしない）。
+
 ## Known unsolved: contentOffset
 
-検知座標 = スキャン時の参照オブジェクト原点（既定: バウンディングボックス底面中心）≠ 対象物の見た目中心。差分はAR Foundation 5.2.2では自動取得不可（`ARReferenceObject.center/extent`非公開）。
+検知座標 = スキャン時の参照オブジェクト原点（既定: バウンディングボックス底面中心）≠ 対象物の見た目中心。差分はAR Foundation 5.2.2では自動取得不可（`ARReferenceObject.center/extent`非公開）。詳細・調整手順は`docs/AR_TECHNICAL_NOTES.md` §6参照。
+
+## その他の技術資料
+
+- `docs/XCODE_DEPLOYMENT_TROUBLESHOOTING.md` — Xcode署名・配備のトラブルシューティング
+- `docs/AR_TECHNICAL_NOTES.md` — TrackedPoseDriver・World Anchor等の実装知識
+- `docs/ARKIT_OBJECT_DETECTION_REFERENCE.md` — 対象物選定基準・照明条件・複数スキャン戦略
+- Unity CLI（公式/batchmode/CLI Loop）の区別は`melon-active/MCP/CLAUDE.md`の分類表を参照
 
 対応: `ObjectDetectionSpawner.contentOffset`（Vector3, Inspector）を対象物ごとに実機調整——自動化手段は存在しない。対象物を追加・入替するたびに再発するタスクとして扱うこと。実機ログの`center`/`extent`出力を調整の手掛かりにする。
 
